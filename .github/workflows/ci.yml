@@ -31,5 +31,5 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@0.0.2
         with:
-          args: 'Action status {{ GITHUB_ACTION }}'
+          args: {{ GITHUB_ACTION }} as {{ EVENT_PAYLOAD.pull_request.id }}
 
