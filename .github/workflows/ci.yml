@@ -25,3 +25,8 @@ jobs:
 
       - name: PHPUnit
         run: vendor/bin/phpunit -c $GITHUB_WORKSPACE/phpunit.xml.dist --coverage-text
+
+      - name: Actions for Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.0.2
