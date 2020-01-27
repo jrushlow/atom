@@ -45,4 +45,14 @@ jobs:
         with:
           args: ${{ job.status }}
 
-
+      - name: Post status to Discord
+        uses: sarisia/actions-status-discord@v1
+        # make sure to set this `always()`
+        # or status failure and cancelled won't be notified!
+        if: always()
+        with:
+          # provide discord webhook via either inputs or env.DISCORD_WEBHOOK
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: ${{ job.status }}
+          job: Atom CI
+          description: push / pr to geeshoe/atom
