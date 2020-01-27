@@ -31,5 +31,10 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         uses: Ilshidur/action-discord@0.0.2
         with:
-          args: ${{ GITHUB_ACTION }} as ${{ EVENT_PAYLOAD.pull_request.id }}
+          args: 'A new commit has been pushed to .'
+
+      - name: Discord notification
+          env:
+            DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          uses: Ilshidur/action-discord@master
 
